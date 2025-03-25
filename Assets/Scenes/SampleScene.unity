@@ -448,6 +448,10 @@ PrefabInstance:
       propertyPath: tomatoPrefab
       value: 
       objectReference: {fileID: 2424635513397979522, guid: a0882ca7ad2c3dd46a7e21de11905221, type: 3}
+    - target: {fileID: 6348128798520615711, guid: 4e62cef25c9c0044396d26e28850433b, type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4310980be4c07dc42a8fca6d7fbda792, type: 2}
     - target: {fileID: 7353898721786102095, guid: 4e62cef25c9c0044396d26e28850433b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -2263,6 +2267,17 @@ Transform:
   - {fileID: 1823631937}
   m_Father: {fileID: 617195440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2061190813 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6348128798520615711, guid: 4e62cef25c9c0044396d26e28850433b, type: 3}
+  m_PrefabInstance: {fileID: 307126508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5018dc86e27aa24f83ee67ae96f31da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2420661619624471606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2339,6 +2354,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6348128798520615711, guid: 4e62cef25c9c0044396d26e28850433b, type: 3}
+      propertyPath: testing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348128798520615711, guid: 4e62cef25c9c0044396d26e28850433b, type: 3}
+      propertyPath: secondClearCounter
+      value: 
+      objectReference: {fileID: 2061190813}
     - target: {fileID: 7353898721786102095, guid: 4e62cef25c9c0044396d26e28850433b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
