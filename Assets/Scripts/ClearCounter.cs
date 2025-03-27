@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class ClearCounter : BaseCounter, IKitchenObjectParent
+public class ClearCounter : BaseCounter
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
     [SerializeField] private Transform counterTopPoint;
 
@@ -23,25 +24,5 @@ public class ClearCounter : BaseCounter, IKitchenObjectParent
         }
     }
 
-    public Transform GetKitchenObjectFollowTransform()
-    {
-        return counterTopPoint;
-    }
-    public void SetKitchenObject(KitchenObject kitchenObject)
-    {
-        this.kitchenObject = kitchenObject;
-    }
-    public KitchenObject GetKitchenObject()
-    {
-        return kitchenObject;
-    }
 
-    public void ClearKitchenObject()
-    {
-        kitchenObject =null;
-    }
-    public bool HasKitchenObject()
-    {
-        return kitchenObject != null;
-    }
 }
