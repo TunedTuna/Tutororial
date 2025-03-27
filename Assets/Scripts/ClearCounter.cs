@@ -1,10 +1,28 @@
 using UnityEngine;
 
-public class ClearCounter : MonoBehaviour
+public class ClearCounter : BaseCounter
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Interact()
+
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
+    [SerializeField] private Transform counterTopPoint;
+
+    private KitchenObject kitchenObject;
+
+    public override void Interact(Player player)
     {
-        Debug.Log("Interact");
+        if ((kitchenObject ==null))
+        {
+            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
+            kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
+        }
+        else
+        {
+            //get object to player
+            //Debug.Log(kitchenObject.GetClearCounter());
+            kitchenObject.SetKitchenObjectParent(player);
+        }
     }
+
+
 }
