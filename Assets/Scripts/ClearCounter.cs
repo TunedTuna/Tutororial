@@ -31,6 +31,7 @@ public class ClearCounter : MonoBehaviour
         }
         else
         {
+            //get object to player
             Debug.Log(kitchenObject.GetClearCounter());
         }
     }
