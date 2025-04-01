@@ -4,10 +4,10 @@ public class ClearCounter : BaseCounter
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
-    [SerializeField] private Transform counterTopPoint;
+     private KitchenObjectSO kitchenObjectSO;
+     private Transform counterTopPoint;
 
-    private KitchenObject kitchenObject;
+     private KitchenObject kitchenObject;
 
     public override void Interact(Player player)
     {
