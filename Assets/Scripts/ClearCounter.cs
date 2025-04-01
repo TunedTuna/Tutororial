@@ -4,23 +4,36 @@ public class ClearCounter : BaseCounter
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-     private KitchenObjectSO kitchenObjectSO;
-     private Transform counterTopPoint;
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-     private KitchenObject kitchenObject;
 
     public override void Interact(Player player)
     {
-        if ((kitchenObject ==null))
+        if (!HasKitchenObject())
         {
-            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
-            kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
+            //no kitchen BJ
+            if (player.HasKitchenObject())
+            {
+                //carrying
+                player.GetKitchenObject().SetKitchenObjectParent(this);
+            }
+            else
+            {
+                //p has nothing
+            }
         }
         else
         {
-            //get object to player
-            //Debug.Log(kitchenObject.GetClearCounter());
-            kitchenObject.SetKitchenObjectParent(player);
+            //is kitcehn obj
+            if (player.HasKitchenObject()) 
+            { 
+                //carrying sumthin
+            }
+            else
+            {
+                //p not carrying
+                GetKitchenObject().SetKitchenObjectParent(player);
+            }
         }
     }
 
