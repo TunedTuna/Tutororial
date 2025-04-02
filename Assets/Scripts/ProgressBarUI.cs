@@ -1,16 +1,39 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProgressBarUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   
+    [SerializeField] private Image barImage;
+    [SerializeField] private CuttingCounter cuttingCounter;
+
+    private void Start()
     {
-        
+        cuttingCounter.OnProgressChanged += CuttingCounter_OnProgressChanged;
+        barImage.fillAmount = 0f;
+        Hide();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CuttingCounter_OnProgressChanged(object sender, CuttingCounter.OnProgressChangedEventArgs e)
     {
-        
+        barImage.fillAmount = e.progressNormalized;
+        if (e.progressNormalized == 0f || e.progressNormalized == 1f) 
+        { 
+        Hide();
+        }
+        else
+        {
+            Show();
+        }
+    }
+
+    private void Show()
+    {
+        gameObject.SetActive(true);
+    }
+    private void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }
