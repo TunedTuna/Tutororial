@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CuttingCounter : BaseCounter
 {
-    [SerializeField]   private KitchenObjectSO cutKitchenObjectSO;
+    [SerializeField]   private CuttingRecipeSO[] cuttingRecipeSOarray;
     public override void Interact(Player player)
     {
         if (!HasKitchenObject())
@@ -11,7 +11,11 @@ public class CuttingCounter : BaseCounter
             if (player.HasKitchenObject())
             {
                 //carrying
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO())){
+                    //player carring somthin w cut recipe
+                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                }
+                
             }
             else
             {
@@ -35,11 +39,39 @@ public class CuttingCounter : BaseCounter
 
     public override void InteractAlternate(Player player)
     {
-        if (HasKitchenObject())
+        if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
             //there is a kitchen object here
+            KitchenObjectSO outputKitchenObjectSO = getOutputForInput(GetKitchenObject().GetKitchenObjectSO());
             GetKitchenObject().DestroySelf();
-            KitchenObject.SpawnKitchenObject(cutKitchenObjectSO, this);
+            KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
         }
+    }
+
+
+    private KitchenObjectSO getOutputForInput(KitchenObjectSO inputKitchenObjectSO)
+    {
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOarray)
+        {
+
+            if (cuttingRecipeSO.input == inputKitchenObjectSO)
+            {
+                return cuttingRecipeSO.output;
+            }
+        }
+        return null;
+    }
+
+    private bool HasRecipeWithInput (KitchenObjectSO input)
+    {//diffrernt name
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOarray)
+        {
+
+            if (cuttingRecipeSO.input == input)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
