@@ -14,31 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1743543664
+  lastShownTimestamp: 1743705260
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1743543664
+  checkedLastUpdateTimestamp: 1743705260
   lastQOTDResponse:
-    questionId: 166
-    questionText: What is JSON and what is it useful for?
-    answerA: JavaScript Over Node, programming pattern
-    answerB: JavaScript Object Notation, data format
-    answerC: Jumping-Signal Over Nonce, crypto concept
+    questionId: 167
+    questionText: Where is the modulo % operator particularly useful?
+    answerA: Looping back on a list
+    answerB: Counting elements in a list
+    answerC: Creating a new list with size
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1743543664
+  lastQotdTimestamp: 1743705260
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleSyntyMar25Extended.png
     topText: Make ANY game with these awesome Assets! (97% OFF!)
     topLink: humblebundle
     bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
     bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1743543664
+  lastDynamicHeaderTimestamp: 1743705260
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1743543664
+  websiteLatestMessageTimestamp: 1743705260
   websiteLatestVideos:
     videos:
     - youTubeId: 79an2JDe51g
@@ -49,4 +49,4 @@ MonoBehaviour:
       title: TOP 20 Visual Assets to INSPIRE YOU! (MARCH 2025)
     - youTubeId: 2-B1HH0rWRI
       title: EVERYTHING Steam did in 2024! (Devs NEED to Know)
-  websiteLatestVideosTimestamp: 1743543664
+  websiteLatestVideosTimestamp: 1743705260
