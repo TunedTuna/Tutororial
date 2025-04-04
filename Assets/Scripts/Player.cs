@@ -4,6 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, IKitchenObjectParent
 {
 
+    public event EventHandler OnPickUpSomething;
     public static Player Instance { get;private set; }
 
     public float moveSpeed = 7f;
@@ -163,6 +164,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     public void SetKitchenObject(KitchenObject kitchenObject)
     {
         this.kitchenObject = kitchenObject;
+
+        if (kitchenObject != null)
+        {
+            OnPickUpSomething?.Invoke(this,EventArgs.Empty);
+        }
     }
     public KitchenObject GetKitchenObject()
     {
