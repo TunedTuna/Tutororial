@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1743705260
+  lastShownTimestamp: 1743809442
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1743705260
+  checkedLastUpdateTimestamp: 1743809442
   lastQOTDResponse:
     questionId: 167
     questionText: Where is the modulo % operator particularly useful?
@@ -27,26 +27,26 @@ MonoBehaviour:
     answerC: Creating a new list with size
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1743705260
+  lastQotdTimestamp: 1743809442
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleSyntyMar25Extended.png
-    topText: Make ANY game with these awesome Assets! (97% OFF!)
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleEnvironmentsApr25.png
+    topText: Gorgeous Realistic and Stylized Environments at 99% OFF!
     topLink: humblebundle
     bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
     bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1743705260
+  lastDynamicHeaderTimestamp: 1743809442
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1743705260
+  websiteLatestMessageTimestamp: 1743809442
   websiteLatestVideos:
     videos:
+    - youTubeId: wejUWjCVW94
+      title: The 10 BEST Game Dev Beginner Projects to Make!
     - youTubeId: 79an2JDe51g
       title: NO MORE PROGRAMMING, let's do Pen Spinning instead!
     - youTubeId: BR1HFAj2v-Y
       title: This GAME made $28 MILLION! Why?
     - youTubeId: SJClo9ny1kM
       title: TOP 20 Visual Assets to INSPIRE YOU! (MARCH 2025)
-    - youTubeId: 2-B1HH0rWRI
-      title: EVERYTHING Steam did in 2024! (Devs NEED to Know)
-  websiteLatestVideosTimestamp: 1743705260
+  websiteLatestVideosTimestamp: 1743809442
