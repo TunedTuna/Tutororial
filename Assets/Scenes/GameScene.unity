@@ -2384,7 +2384,7 @@ GameObject:
   - component: {fileID: 214141335}
   - component: {fileID: 214141334}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: downy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4832,7 +4832,7 @@ GameObject:
   - component: {fileID: 362587412}
   - component: {fileID: 362587411}
   m_Layer: 5
-  m_Name: E
+  m_Name: inty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7655,8 +7655,22 @@ MonoBehaviour:
   soundFXButton: {fileID: 410730606}
   musicButton: {fileID: 1251118011}
   closeButton: {fileID: 1002593031}
+  moveUpButton: {fileID: 315255915}
+  moveDownButton: {fileID: 93592370}
+  moveLeftButton: {fileID: 1587722701}
+  moveRightButton: {fileID: 57755123}
+  interactAltButton: {fileID: 452168419}
+  interactButton: {fileID: 1716649925}
+  pauseButton: {fileID: 1894167585}
   soundFXText: {fileID: 1061246758}
   musicText: {fileID: 1780817918}
+  moveUpText: {fileID: 1508768384}
+  moveDownText: {fileID: 214141334}
+  moveLeftText: {fileID: 1484817594}
+  moveRightText: {fileID: 1790382213}
+  interactAltText: {fileID: 1601215326}
+  interactText: {fileID: 362587411}
+  pauseText: {fileID: 2002372663}
 --- !u!4 &835346765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8151162175014390208, guid: 8e7743388acf1da4b96e0cffffdf44c9, type: 3}
@@ -12537,7 +12551,7 @@ GameObject:
   - component: {fileID: 1484817595}
   - component: {fileID: 1484817594}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: lefty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12673,7 +12687,7 @@ GameObject:
   - component: {fileID: 1508768385}
   - component: {fileID: 1508768384}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: uppy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14206,7 +14220,7 @@ GameObject:
   - component: {fileID: 1601215327}
   - component: {fileID: 1601215326}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: alty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17255,7 +17269,7 @@ GameObject:
   - component: {fileID: 1790382214}
   - component: {fileID: 1790382213}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: righty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24243,7 +24257,7 @@ GameObject:
   - component: {fileID: 2002372664}
   - component: {fileID: 2002372663}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: paws
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
