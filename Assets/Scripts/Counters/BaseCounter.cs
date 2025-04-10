@@ -13,14 +13,11 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
     [SerializeField] private Transform counterTopPoint;
 
     private KitchenObject kitchenObject;
-    public virtual void Interact(Player player)
+    public virtual void Interact(IKitchenObjectParent interactor)
     {
         Debug.LogError("BaseCOunter.Interact()");
     }
-    public virtual void InteractAI(RobotController Robot)
-    {
-        Debug.LogError("BaseCOunter.Interact()");
-    }
+
     public virtual void InteractAlternate(Player player)
     {
         Debug.LogError("BaseCOunter.InteractAlternate()");

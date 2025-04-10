@@ -9,11 +9,11 @@ public class TrashCounter : BaseCounter
     }
 
     public static event EventHandler OnAnyObjectTrash;
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent interactor)
     {
-        if (player.HasKitchenObject())
+        if (interactor.HasKitchenObject())
         {
-            player.GetKitchenObject().DestroySelf();
+            interactor.GetKitchenObject().DestroySelf();
 
             OnAnyObjectTrash?.Invoke(this,EventArgs.Empty);
         }

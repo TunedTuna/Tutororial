@@ -14,10 +14,11 @@ public class RobotController : MonoBehaviour, IKitchenObjectParent
     [SerializeField] private Transform destinationTransform;
     [SerializeField] private Transform kitchenObjectHoldPoint;
     [SerializeField] private LayerMask counterLayerMask;
+    [SerializeField] private float interactRange = 2f;
 
     private KitchenObject kitchenObject;
     private BaseCounter selectedCounter;
-    private Vector3 lastInteractPosition;
+    private bool shouldInteract = false;
     public event EventHandler OnPickUpSomething;
 
     public event EventHandler<onSelectedCounterChangedEventArs> onSelectedCounterChanged;
@@ -34,7 +35,7 @@ public class RobotController : MonoBehaviour, IKitchenObjectParent
 
     }
 
-    private void DestinationController_OnPlateDetected(object sender, EventArgs e)
+    private void DestinationController_OnPlateDetected(object sender, EventArgs e)//this never happens
     {
         //pick up plate
         if (!KitchenGameManager.Instance.IsGamePlaying()) return;
@@ -42,13 +43,16 @@ public class RobotController : MonoBehaviour, IKitchenObjectParent
         {
 
 
-            selectedCounter.InteractAI(this);
+            selectedCounter.Interact(this);
+            shouldInteract = true;
+            Debug.Log(shouldInteract);
         }
 
     }
 
     void Update()
     {
+        //bot should only interact w/ clear counter n 
       
         agent.destination = destinationTransform.position;
         //gotta do something where destion something?
@@ -63,8 +67,9 @@ public class RobotController : MonoBehaviour, IKitchenObjectParent
             {
 
                 destinationShere.position = hitInfo.point;
-                lastInteractPosition = destinationShere.position;
-                float interactDistance = 2f;
+               
+                TryUpdateSelectedCounter();
+               
                 if (hitInfo.transform.TryGetComponent(out ClearCounter clearCounter))
                 {
                     if (clearCounter.HasKitchenObject())
@@ -73,38 +78,50 @@ public class RobotController : MonoBehaviour, IKitchenObjectParent
                         {
                             Debug.Log("its a plate!");
                             OnPlateDetected?.Invoke(this, EventArgs.Empty);
-                            if (Physics.Raycast(transform.position, lastInteractPosition, out RaycastHit raycasthit, interactDistance, counterLayerMask))
+                            float distCounter= Vector3.Distance(transform.position,clearCounter.transform.position);
+                            if(distCounter<= interactRange)
                             {
-                                if (raycasthit.transform.TryGetComponent(out BaseCounter baseCounter))
-                                {
-                                    // has clear counter
-                                    //clearCounter.Interact();
-                                    if (baseCounter != selectedCounter)
-                                    {
-                                        SetSelectedCounter(baseCounter);
-
-                                    }
-
-                                }
-                                else
-                                {
-                                    SetSelectedCounter(null);
-
-                                }
+                                selectedCounter.Interact(this);
                             }
-                            else
-                            {
-                                //Debug.Log("--");
-                                SetSelectedCounter(null);
-                            }
-
 
                         }
                     }
 
 
                 }
+                else if (hitInfo.transform.TryGetComponent(out DeliveryCounter deliveryCounter))
+                {
+                    float distCounter = Vector3.Distance(transform.position, deliveryCounter.transform.position);
+                    if (distCounter <= interactRange)
+                    {
+                        selectedCounter.Interact(this);
+                    }
+                   
+                }
             }
+        }
+    }
+    private void TryUpdateSelectedCounter()//i dont think this ever happens either
+    {
+        float interactDistance = 2f;
+
+        if (Physics.Raycast(destinationShere.position + Vector3.up, Vector3.down, out RaycastHit rayHit, interactDistance, counterLayerMask))
+        {
+            if (rayHit.transform.TryGetComponent(out BaseCounter baseCounter))
+            {
+                if (baseCounter != selectedCounter)
+                {
+                    SetSelectedCounter(baseCounter);
+                }
+            }
+            else
+            {
+                SetSelectedCounter(null);
+            }
+        }
+        else
+        {
+            SetSelectedCounter(null);
         }
     }
 

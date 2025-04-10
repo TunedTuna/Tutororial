@@ -101,20 +101,20 @@ public class StoveCounter : BaseCounter,IHasProgress
         }
         
     }
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent interactor)
     {
        
         
         if (!HasKitchenObject())
         {
             //no kitchen BJ
-            if (player.HasKitchenObject())
+            if (interactor.HasKitchenObject())
             {
                 //carrying
-                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
+                if (HasRecipeWithInput(interactor.GetKitchenObject().GetKitchenObjectSO()))
                 {
                     //player carring somthin tat can be fried
-                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                    interactor.GetKitchenObject().SetKitchenObjectParent(this);
                      fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
                     state = State.Frying;
                     fryingTimer = 0f;
@@ -137,10 +137,10 @@ public class StoveCounter : BaseCounter,IHasProgress
         else
         {
             //is kitcehn obj
-            if (player.HasKitchenObject())
+            if (interactor.HasKitchenObject())
             {
                 //carrying sumthin
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                if (interactor.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                 {
                     //player is holding a plate
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
@@ -167,7 +167,7 @@ public class StoveCounter : BaseCounter,IHasProgress
             {
                 //p not carrying
                 
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetKitchenObject().SetKitchenObjectParent(interactor);
                 state = State.Idle;
 
                 OnStateChanged?.Invoke(this, new OnStateChangedEventArgs

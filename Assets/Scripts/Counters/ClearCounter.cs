@@ -7,54 +7,41 @@ public class ClearCounter : BaseCounter
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
 
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent interactor)
     {
+        // Works for both Player and RobotController
         if (!HasKitchenObject())
         {
-            //no kitchen BJ
-            if (player.HasKitchenObject())
+            if (interactor.HasKitchenObject())
             {
-                //carrying
-                player.GetKitchenObject().SetKitchenObjectParent(this);
-            }
-            else
-            {
-                //p has nothing
+                interactor.GetKitchenObject().SetKitchenObjectParent(this);
             }
         }
         else
         {
-            //is kitcehn obj
-            if (player.HasKitchenObject()) 
-            { 
-                //carrying sumthin
-                if(player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+            if (interactor.HasKitchenObject())
+            {
+                if (interactor.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                 {
-                    //player is holding a plate
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
                     {
                         GetKitchenObject().DestroySelf();
                     }
-                    
-
                 }
                 else
                 {
-                    //player not carrying plate, but sumthin else
-                    if(GetKitchenObject().TryGetPlate(out  plateKitchenObject))
+                    if (GetKitchenObject().TryGetPlate(out plateKitchenObject))
                     {
-                        //counte is hold a plate
-                        if (plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSO()))
+                        if (plateKitchenObject.TryAddIngredient(interactor.GetKitchenObject().GetKitchenObjectSO()))
                         {
-                            player.GetKitchenObject().DestroySelf();
+                            interactor.GetKitchenObject().DestroySelf();
                         }
                     }
                 }
             }
             else
             {
-                //p not carrying
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetKitchenObject().SetKitchenObjectParent(interactor);
             }
         }
     }

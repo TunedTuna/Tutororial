@@ -7,12 +7,12 @@ public class ContainerCounter : BaseCounter
     public event EventHandler OnPlayerGrabbedObject;
    [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent interactor)
     {
-        if (!player.HasKitchenObject())
+        if (!interactor.HasKitchenObject())
         {
             //play hands are free
-            KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
+            KitchenObject.SpawnKitchenObject(kitchenObjectSO, interactor);
             OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
         }
      

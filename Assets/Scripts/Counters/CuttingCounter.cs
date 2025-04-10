@@ -14,17 +14,17 @@ public class CuttingCounter : BaseCounter,IHasProgress
 
     [SerializeField]   private CuttingRecipeSO[] cuttingRecipeSOarray;
     private int cuttingProgress;
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent interactor)
     {
         if (!HasKitchenObject())
         {
             //no kitchen BJ
-            if (player.HasKitchenObject())
+            if (interactor.HasKitchenObject())
             {
                 //carrying
-                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO())){
+                if (HasRecipeWithInput(interactor.GetKitchenObject().GetKitchenObjectSO())){
                     //player carring somthin w cut recipe
-                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                    interactor.GetKitchenObject().SetKitchenObjectParent(this);
                     cuttingProgress = 0;
                     CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
                     OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
@@ -42,10 +42,10 @@ public class CuttingCounter : BaseCounter,IHasProgress
         else
         {
             //is kitcehn obj
-            if (player.HasKitchenObject())
+            if (interactor.HasKitchenObject())
             {
                 //carrying sumthin
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                if (interactor.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                 {
                     //player is holding a plate
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
@@ -59,7 +59,7 @@ public class CuttingCounter : BaseCounter,IHasProgress
             else
             {
                 //p not carrying
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetKitchenObject().SetKitchenObjectParent(interactor);
             }
         }
     }
