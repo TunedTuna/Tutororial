@@ -13,9 +13,11 @@ public class RobotController : MonoBehaviour, IKitchenObjectParent
 
     [SerializeField] private Transform destinationTransform;
     [SerializeField] private Transform kitchenObjectHoldPoint;
+    [SerializeField] private LayerMask counterLayerMask;
 
     private KitchenObject kitchenObject;
     private BaseCounter selectedCounter;
+    private Vector3 lastInteractPosition;
     public event EventHandler OnPickUpSomething;
 
     public event EventHandler<onSelectedCounterChangedEventArs> onSelectedCounterChanged;
@@ -61,6 +63,8 @@ public class RobotController : MonoBehaviour, IKitchenObjectParent
             {
 
                 destinationShere.position = hitInfo.point;
+                lastInteractPosition = destinationShere.position;
+                float interactDistance = 2f;
                 if (hitInfo.transform.TryGetComponent(out ClearCounter clearCounter))
                 {
                     if (clearCounter.HasKitchenObject())
@@ -69,6 +73,30 @@ public class RobotController : MonoBehaviour, IKitchenObjectParent
                         {
                             Debug.Log("its a plate!");
                             OnPlateDetected?.Invoke(this, EventArgs.Empty);
+                            if (Physics.Raycast(transform.position, lastInteractPosition, out RaycastHit raycasthit, interactDistance, counterLayerMask))
+                            {
+                                if (raycasthit.transform.TryGetComponent(out BaseCounter baseCounter))
+                                {
+                                    // has clear counter
+                                    //clearCounter.Interact();
+                                    if (baseCounter != selectedCounter)
+                                    {
+                                        SetSelectedCounter(baseCounter);
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    SetSelectedCounter(null);
+
+                                }
+                            }
+                            else
+                            {
+                                //Debug.Log("--");
+                                SetSelectedCounter(null);
+                            }
 
 
                         }
