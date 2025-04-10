@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class KitchenGameManager : MonoBehaviour
@@ -9,6 +10,9 @@ public class KitchenGameManager : MonoBehaviour
     public event EventHandler OnStateChanged;
     public event EventHandler OnGamePaused;
     public event EventHandler OnGameUnpaused;
+
+    [SerializeField] private GameObject countdownCam;
+    [SerializeField] private GameObject gameplayCam;
     private enum State
     {
         WaitingToStart,
@@ -56,6 +60,8 @@ public class KitchenGameManager : MonoBehaviour
              
                 break;
             case State.CountdowToStart:
+                countdownCam.SetActive(true);
+                gameplayCam.SetActive(false);
                 countdownToStartTimer -= Time.deltaTime;
                 if (countdownToStartTimer < 0f)
                 {
@@ -65,6 +71,8 @@ public class KitchenGameManager : MonoBehaviour
                 }
                 break;
             case State.GamePlaying:
+                gameplayCam.SetActive(true);
+                countdownCam.SetActive(false);
                 gamePlayingTimer -= Time.deltaTime;
                 if (gamePlayingTimer < 0f)
                 {
