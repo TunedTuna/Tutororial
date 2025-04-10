@@ -14,39 +14,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.00
   subtype: kitchenchaos
-  lastShownTimestamp: 1743809442
+  lastShownTimestamp: 1744247038
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1743809442
+  checkedLastUpdateTimestamp: 1744247038
   lastQOTDResponse:
-    questionId: 167
-    questionText: Where is the modulo % operator particularly useful?
-    answerA: Looping back on a list
-    answerB: Counting elements in a list
-    answerC: Creating a new list with size
+    questionId: 169
+    questionText: 'What is the Color on the SpriteRenderer after running this code?
+
+      <p>Color
+      myColor = Color.red;</p>
+
+      <p>spriteRenderer.color = myColor;</p>
+
+      <p>myColor
+      = Color.blue;</p>'
+    answerA: Red
+    answerB: Blue
+    answerC: Don't Know
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1743809442
+  lastQotdTimestamp: 1744247038
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleEnvironmentsApr25.png
     topText: Gorgeous Realistic and Stylized Environments at 99% OFF!
     topLink: humblebundle
     bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
     bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1743809442
+  lastDynamicHeaderTimestamp: 1744247038
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1743809442
+  websiteLatestMessageTimestamp: 1744247038
   websiteLatestVideos:
     videos:
+    - youTubeId: zgJHRiounHs
+      title: The Problem of Making more MONEY with Assets than Games
     - youTubeId: wejUWjCVW94
       title: The 10 BEST Game Dev Beginner Projects to Make!
     - youTubeId: 79an2JDe51g
       title: NO MORE PROGRAMMING, let's do Pen Spinning instead!
     - youTubeId: BR1HFAj2v-Y
       title: This GAME made $28 MILLION! Why?
-    - youTubeId: SJClo9ny1kM
-      title: TOP 20 Visual Assets to INSPIRE YOU! (MARCH 2025)
-  websiteLatestVideosTimestamp: 1743809442
+  websiteLatestVideosTimestamp: 1744247038

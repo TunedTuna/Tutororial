@@ -20,7 +20,8 @@ public class KitchenGameManager : MonoBehaviour
     
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
-    private float gamePlayingTimerMax = 30f;
+    private float gamePlayingTimerMax = 50f;
+    private float resetTimer = 5f;
     private bool isGamePaused = false;
     private void Awake()
     {
@@ -72,10 +73,15 @@ public class KitchenGameManager : MonoBehaviour
                 }
                 break;
             case State.GameOver:
+                resetTimer -= Time.deltaTime;
+                if (resetTimer < 0f)
+                {
+                    Loader.Load(Loader.Scene.MainMenuScene);
+                }
             
                 break;
         }
-        Debug.Log(state);
+        
     }
 
     public bool IsGamePlaying()

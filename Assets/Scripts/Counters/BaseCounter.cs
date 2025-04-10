@@ -17,6 +17,10 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
     {
         Debug.LogError("BaseCOunter.Interact()");
     }
+    public virtual void InteractAI(RobotController Robot)
+    {
+        Debug.LogError("BaseCOunter.Interact()");
+    }
     public virtual void InteractAlternate(Player player)
     {
         Debug.LogError("BaseCOunter.InteractAlternate()");
